@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valu &amp; Brai - Casamiento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="heroAudio" src="cancion.mp3" loop></audio>
+
+    <button class="audio-toggle is-playing" type="button" aria-pressed="true" aria-label="Reproducir musica">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M18 3a1 1 0 0 1 1 1v14.382a3.5 3.5 0 1 1-2-3.246V7.764l-7 1.4V17.5a3.5 3.5 0 1 1-2-3.247V6.5a1 1 0 0 1 .803-.98l9-1.8A1 1 0 0 1 18 3Z" />
+        </svg>
+    </button>
+
+    <main class="hero" role="banner">
+        <svg class="hero__leaf hero__leaf--left" viewBox="0 0 200 300" aria-hidden="true">
+            <path d="M170 20C80 90 50 180 60 280 15 200 5 90 60 20c30-40 70-30 110 0Z" />
+            <path d="M140 80C90 120 70 170 75 230 48 180 42 120 75 80c18-24 42-18 65 0Z" />
+        </svg>
+        <svg class="hero__leaf hero__leaf--right" viewBox="0 0 200 300" aria-hidden="true">
+            <path d="M30 20c90 70 120 160 110 260 45-80 55-190 0-260-30-40-70-30-110 0Z" />
+            <path d="M60 80c50 40 70 90 65 150 27-50 33-110 0-150-18-24-42-18-65 0Z" />
+        </svg>
+        <div class="hero__content">
+            <p class="hero__date">06.03.2026</p>
+            <h1 class="hero__names">Valu <span>&amp;</span> Brai</h1>
+            <p class="hero__quote">Entre risas y sueños,<br>construimos nuestro amor</p>
+            <a class="hero__scroll" href="#contador" aria-label="Seguir bajando">
+                <span></span>
+            </a>
+        </div>
+    </main>
+
+    <div class="section-transition" aria-hidden="true">
+        <svg class="section-transition__art" viewBox="0 0 1440 340" preserveAspectRatio="none">
+            <path class="section-transition__cream" d="M0 236C220 214 430 194 640 204C850 214 1060 236 1240 222C1340 214 1400 200 1440 206V340H0Z" />
+            <path class="section-transition__mint" d="M0 146C200 94 380 104 580 148C780 192 980 204 1180 162C1340 130 1400 120 1440 128V0H0Z" />
+            <path class="section-transition__line section-transition__line--upper" d="M0 196C240 122 470 138 690 198C910 258 1170 230 1440 164" />
+            <path class="section-transition__line section-transition__line--lower" d="M0 276C240 214 480 220 720 258C960 296 1200 268 1440 210" />
+            <path class="section-transition__baseline" d="M0 332H1440" />
+        </svg>
+    </div>
+
+    <section id="contador" class="countdown" data-countdown-date="2026-03-06T00:00:00">
+        <div class="countdown__inner" data-countdown>
+            <svg class="decor-leaf decor-leaf--countdown-top" viewBox="0 0 200 300" aria-hidden="true">
+                <path d="M170 20C80 90 50 180 60 280 15 200 5 90 60 20c30-40 70-30 110 0Z" />
+                <path d="M140 80C90 120 70 170 75 230 48 180 42 120 75 80c18-24 42-18 65 0Z" />
+            </svg>
+            <svg class="decor-leaf decor-leaf--countdown-bottom" viewBox="0 0 200 300" aria-hidden="true">
+                <path d="M30 20c90 70 120 160 110 260 45-80 55-190 0-260-30-40-70-30-110 0Z" />
+                <path d="M60 80c50 40 70 90 65 150 27-50 33-110 0-150-18-24-42-18-65 0Z" />
+            </svg>
+            <svg class="decor-leaf decor-leaf--bottom" viewBox="0 0 200 300" aria-hidden="true">
+                <path d="M170 20C80 90 50 180 60 280 15 200 5 90 60 20c30-40 70-30 110 0Z" />
+                <path d="M140 80C90 120 70 170 75 230 48 180 42 120 75 80c18-24 42-18 65 0Z" />
+            </svg>
+            <svg class="decor-leaf decor-leaf--bottom-secondary" viewBox="0 0 200 300" aria-hidden="true">
+                <path d="M30 20c90 70 120 160 110 260 45-80 55-190 0-260-30-40-70-30-110 0Z" />
+                <path d="M60 80c50 40 70 90 65 150 27-50 33-110 0-150-18-24-42-18-65 0Z" />
+            </svg>
+            <div class="countdown__rings" aria-hidden="true">
+                <span></span>
+            </div>
+            <div class="countdown__card">
+                <p class="countdown__title">Faltan</p>
+
+                <ul class="countdown__grid">
+                    <li>
+                        <span class="countdown__number" data-countdown-value="days">00</span>
+                        <span class="countdown__label">dias</span>
+                    </li>
+                    <li>
+                        <span class="countdown__number" data-countdown-value="hours">00</span>
+                        <span class="countdown__label">hs</span>
+                    </li>
+                    <li>
+                        <span class="countdown__number" data-countdown-value="minutes">00</span>
+                        <span class="countdown__label">min</span>
+                    </li>
+                    <li>
+                        <span class="countdown__number" data-countdown-value="seconds">00</span>
+                        <span class="countdown__label">seg</span>
+                    </li>
+                </ul>
+                <p class="countdown__subtitle">Hasta nuestro gran dia</p>
+                <span class="countdown__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                        <path d="M12 20.727C6.5 17.078 3 13.88 3 9.797 3 7.143 5.107 5 7.805 5c1.61 0 3.178.84 4.195 2.152C13.018 5.84 14.586 5 16.195 5 18.893 5 21 7.143 21 9.797c0 4.083-3.5 7.281-9 10.93Z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="itinerary" id="itinerario">
+        <div class="itinerary__card">
+            <p class="itinerary__title">Itinerario</p>
+            <span class="itinerary__rule" aria-hidden="true"></span>
+            <article class="itinerary__item">
+                <span class="itinerary__icon" aria-hidden="true">
+                    <img decoding="async"
+                        src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/888888-gris-humo-icono-14.gif"
+                        alt="" width="70" height="70" loading="lazy" class="">
+                </span>
+                <h3 class="itinerary__item-title">Ceremonia</h3>
+                <p class="itinerary__time">20:00 hs</p>
+                <a class="itinerary__button" href="https://maps.app.goo.gl/ceremoniaValuBraian" target="_blank"
+                    rel="noopener noreferrer" aria-label="Ver mapa de la ceremonia">
+                    Ver mapa
+                </a>
+            </article>
+            <span class="itinerary__rule" aria-hidden="true"></span>
+            <article class="itinerary__item">
+                <span class="itinerary__icon" aria-hidden="true">
+                    <img decoding="async"
+                        src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/888888-gris-humo-icono-11.gif"
+                        alt="" width="70" height="70" loading="lazy">
+                </span>
+                <h3 class="itinerary__item-title">Celebración</h3>
+                <p class="itinerary__time">21:30 hs</p>
+                <a class="itinerary__button" href="https://maps.app.goo.gl/celebracionValuBraian" target="_blank"
+                    rel="noopener noreferrer" aria-label="Ver mapa de la celebración">
+                    Ver mapa
+                </a>
+            </article>
+            <span class="itinerary__rule itinerary__rule--end" aria-hidden="true"></span>
+        </div>
+    </section>
+    
+    <section class="memories" id="galeria">
+        <div class="memories__inner">
+            <div class="memories__header">
+                <p class="memories__eyebrow">Nuestros momentos</p>
+                <h2 class="memories__title">Galería</h2>
+            </div>
+            <div class="memories-carousel" data-carousel aria-roledescription="carousel">
+                <button class="memories-carousel__control memories-carousel__control--prev" type="button" data-carousel-prev
+                    aria-label="Ver foto anterior">
+                    <span aria-hidden="true">‹</span>
+                </button>
+                <button class="memories-carousel__control memories-carousel__control--next" type="button" data-carousel-next
+                    aria-label="Ver foto siguiente">
+                    <span aria-hidden="true">›</span>
+                </button>
+                <div class="memories-carousel__viewport" data-carousel-viewport tabindex="0" aria-live="polite">
+                    <ul class="memories-carousel__track" data-carousel-track>
+                        <li class="memories-carousel__slide">
+                            <figure class="memories-card">
+                                <img src="https://picsum.photos/seed/boda1/720/900" alt="Pareja caminando al atardecer"
+                                    loading="lazy">
+                            </figure>
+                        </li>
+                        <li class="memories-carousel__slide">
+                            <figure class="memories-card">
+                                <img src="https://picsum.photos/seed/boda2/720/900" alt="Brindis con amigos" loading="lazy">
+                            </figure>
+                        </li>
+                        <li class="memories-carousel__slide">
+                            <figure class="memories-card">
+                                <img src="https://picsum.photos/seed/boda3/720/900" alt="Flores y detalles románticos"
+                                    loading="lazy">
+                            </figure>
+                        </li>
+                        <li class="memories-carousel__slide">
+                            <figure class="memories-card">
+                                <img src="https://picsum.photos/seed/boda4/720/900" alt="Paseo por la ciudad"
+                                    loading="lazy">
+                            </figure>
+                        </li>
+                        <li class="memories-carousel__slide">
+                            <figure class="memories-card">
+                                <img src="https://picsum.photos/seed/boda5/720/900" alt="Celebración al aire libre"
+                                    loading="lazy">
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+                <div class="memories-carousel__progress" aria-hidden="true">
+                    <span data-carousel-progress></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="event-info-fiesta">
+        <div class="event-info__inner">
+            <span class="event-info__icon" aria-hidden="true">
+                <img decoding="async" src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/ffffff-blanco-icono-32.gif" alt=""
+                    width="70" height="70" loading="lazy">
+            </span>
+            <p class="event-info__subtitle">Luna de miel</p>
+            <p class="event-info__text-w">Si deseas hacernos un obsequio, pueden contribuir a nuestra luna de miel</p>
+            <button class="event-info__button" type="button" data-bank-modal-open aria-haspopup="dialog"
+                aria-controls="bankModal">Contribuir</button>
+        </div>
+    </section>
+    <section class="event-info-ceremonia">
+        <div class="event-info__inner">
+            
+            <span class="event-info__icon" aria-hidden="true">
+                <img decoding="async" src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/888888-gris-humo-icono-20.gif"
+                    alt="" width="70" height="70" loading="lazy">
+            </span>
+            <p class="event-info__subtitle-w">Dress Code</p>
+            <h2 class="event-info__title">Elegante</h2>
+
+        </div>
+    </section>
+    <section class="event-info-fiesta">
+        <div class="event-info__inner">
+            <span class="event-info__icon" aria-hidden="true">
+                <img decoding="async" src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/ffffff-blanco-icono-8.gif" alt=""
+                    width="70" height="70" loading="lazy">
+            </span>
+            <p class="event-info__subtitle">Confirmación de asistencia</p>
+            <p class="event-info__text-w">Para nosotros es muy importante que confirmes esta invitación.</p>
+            <a class="event-info__button" href="https://maps.app.goo.gl/bHfNCL4s46ynawgPA" target="_blank"
+                rel="noopener noreferrer">Confirmar</a>
+
+        </div>
+    </section>
+
+
+    <div class="bank-modal" data-bank-modal hidden>
+        <div class="bank-modal__backdrop" data-bank-modal-close></div>
+        <div class="bank-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="bank-modal-title" id="bankModal"
+            tabindex="-1">
+            <button class="bank-modal__close" type="button" aria-label="Cerrar" data-bank-modal-close>&times;</button>
+            <div class="bank-modal__section">
+                <p class="bank-modal__heading">Pago</p>
+                <div class="bank-modal__details">
+                    <p>
+                        <span>Alias</span>
+                        <strong>VALUYBRAI.BODA</strong>
+                    </p>
+                    <p>
+                        <span>CBU</span>
+                        <strong>0000003100087654321098</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="love-footer" aria-labelledby="love-footer-names">
+        <div class="love-footer__inner">
+            <p class="love-footer__message">¡Gracias por ser parte de nuestra historia y estar aquí, los queremos!</p>
+            <div class="love-footer__names" id="love-footer-names">
+                <span class="love-footer__name love-footer__name--tomas">Valu</span>
+                <span class="love-footer__ampersand">&amp;</span>
+                <span class="love-footer__name love-footer__name--soledad">Brai</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
