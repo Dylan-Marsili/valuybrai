@@ -113,7 +113,7 @@
                 </span>
                 <h3 class="itinerary__item-title">Ceremonia</h3>
                 <p class="itinerary__time">20:00 hs</p>
-                <a class="itinerary__button" href="https://maps.app.goo.gl/ceremoniaValuBraian" target="_blank"
+                <a class="itinerary__button" href="https://www.google.com/maps/place/Parroquia+Mar%C3%ADa+Madre+de+la+Iglesia/@-34.4811432,-58.6818317,17z/data=!3m1!4b1!4m6!3m5!1s0x95bca3179bf0206b:0x6e11cee05f73fa6f!8m2!3d-34.4811476!4d-58.6792514!16s%2Fg%2F11h7s413dp?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D " target="_blank"
                     rel="noopener noreferrer" aria-label="Ver mapa de la ceremonia">
                     Ver mapa
                 </a>
@@ -127,8 +127,8 @@
                 </span>
                 <h3 class="itinerary__item-title">Celebración</h3>
                 <p class="itinerary__time">21:30 hs</p>
-                <a class="itinerary__button" href="https://maps.app.goo.gl/celebracionValuBraian" target="_blank"
-                    rel="noopener noreferrer" aria-label="Ver mapa de la celebraciÃ³n">
+                <a class="itinerary__button" href="https://maps.app.goo.gl/H3p9FFJEeee65SF77" target="_blank"
+                    rel="noopener noreferrer" aria-label="Ver mapa de la celebración">
                     Ver mapa
                 </a>
             </article>
@@ -223,8 +223,7 @@
             </span>
             <p class="event-info__subtitle">Confirmación de asistencia</p>
             <p class="event-info__text-w">Para nosotros es muy importante que confirmes esta invitación.</p>
-            <a class="event-info__button" href="https://maps.app.goo.gl/bHfNCL4s46ynawgPA" target="_blank"
-                rel="noopener noreferrer">Confirmar</a>
+            <button class="event-info__button" type="button" data-rsvp-modal-open aria-haspopup="dialog" aria-controls="rsvpModal">Confirmar</button>
 
         </div>
     </section>
@@ -297,14 +296,14 @@
                     <label class="rsvp-label">¿Algún requerimiento en la alimentación?
                         <select class="rsvp-input" name="alimentacion">
                             <option value="Ninguno" selected>Ninguno</option>
-                            <option>Vegetariano</option>
-                            <option>Vegano</option>
-                            <option>Celí­aco</option>
+                            <option class="rsvp-select">Vegetariano</option>
+                            <option class="rsvp-select">Vegano</option>
+                            <option class="rsvp-select">Celí­aco</option>
                         </select>
                     </label>
 
                     <label class="rsvp-label">¿Qué canción no puede faltar?
-                        <input class="rsvp-input" name="cancion" type="text" placeholder="TÃ­tulo - Artista" />
+                        <input class="rsvp-input" name="cancion" type="text" placeholder="Tí­tulo - Artista" />
                     </label>
 
                     <p class="guest__error" data-guest-error hidden></p>
@@ -325,9 +324,8 @@
         </div>
     </footer>
 
+    <script type="module" src="rsvp-supabase.js"></script>
     <script src="script.js"></script>
 
 </body>
 </html>
-
-
