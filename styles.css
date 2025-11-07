@@ -560,7 +560,7 @@ a {
 }
 
 .event-info-ceremonia {
-    background: #fdfaf6;
+    background: white;
     color: #2f2a26;
     padding: clamp(4rem, 8vw, 5rem) clamp(1.5rem, 6vw, 3.5rem);
     display: flex;
@@ -1020,6 +1020,9 @@ a {
     padding: clamp(2rem, 6vw, 3rem);
     box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55);
     outline: none;
+    max-height: 90vh;            /* Permite scroll si el contenido excede */
+    overflow: auto;              /* Habilita el scroll interno */
+    -webkit-overflow-scrolling: touch; /* Scroll suave en móviles iOS */
 }
 
 .bank-modal__close {
@@ -1092,6 +1095,7 @@ body.has-bank-modal {
 @media (max-width: 520px) {
     .bank-modal__dialog {
         padding: clamp(1.5rem, 8vw, 2.25rem);
+        max-height: 92vh; /* Un poco más de alto útil en móviles */
     }
 
     .bank-modal__heading {
@@ -1119,6 +1123,123 @@ body.has-bank-modal {
         transform: translateY(0) scale(1);
         opacity: 1;
     }
+}
+
+/* RSVP form inside modal */
+.rsvp-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.guest {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem;
+    border: 1px solid rgba(245, 241, 234, 0.45);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+.guest__title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.rsvp-label {
+    display: grid;
+    gap: 0.35rem;
+    font-size: 0.95rem;
+}
+
+.rsvp-input,
+.rsvp-fieldset {
+    appearance: none;
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid rgba(245, 241, 234, 0.6);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--color-card);
+}
+
+.rsvp-fieldset {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.rsvp-legend {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.rsvp-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.rsvp-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.rsvp-actions__spacer { flex: 1; }
+
+.rsvp-add,
+.rsvp-submit,
+.rsvp-download__btn {
+    border: 1px solid rgba(245, 241, 234, 0.9);
+    background: transparent;
+    color: var(--color-card);
+    padding: 0.6rem 0.9rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.rsvp-add:hover,
+.rsvp-submit:hover,
+.rsvp-download__btn:hover {
+    background: var(--color-card);
+    color: var(--color-gold);
+}
+
+.rsvp-error {
+    color: #ffd2d2;
+}
+
+.rsvp-success {
+    color: #e6ffe6;
+}
+
+.guest__error {
+    color: #ffd2d2;
+    font-size: 0.9rem;
+}
+
+.guest__remove {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: 1px solid rgba(245, 241, 234, 0.9);
+    background: transparent;
+    color: var(--color-card);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.guest__remove:hover {
+    background: var(--color-card);
+    color: var(--color-gold);
+}
+
+.guest__remove[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1150,7 +1271,7 @@ body.has-bank-modal {
 
 .love-footer {
     background: white;
-    color: var(--color-flower-deep);
+    color: #9E9D83;
     padding: clamp(3.5rem, 8vw, 6rem) clamp(1.5rem, 8vw, 4.5rem);
     text-align: center;
     position: relative;
@@ -1187,7 +1308,7 @@ body.has-bank-modal {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     font-weight: 500;
-    color: rgba(66, 53, 40, 0.85);
+    color: #9E9D83;
 }
 
 .love-footer__names {
@@ -1203,7 +1324,7 @@ body.has-bank-modal {
     font-family: var(--font-script);
     font-size: clamp(3.5rem, 14vw, 6.5rem);
     letter-spacing: 0.06em;
-    
+
     white-space: nowrap;
 }
 
@@ -1212,7 +1333,7 @@ body.has-bank-modal {
     font-family: "Playfair Display", "Times New Roman", serif;
     font-weight: 600;
     font-size: clamp(2.4rem, 8vw, 3.5rem);
-    color: var(--color-gold-dark);
+    color: #9E9D83;
 }
 
 
@@ -1265,6 +1386,44 @@ body.has-bank-modal {
     .love-footer__florals {
         transform: translate(-50%, -25%);
         width: clamp(140px, 70vw, 240px);
+    }
+}
+
+@media (max-width: 1200px) {
+    .countdown {
+        padding: clamp(6rem, 10vw, 7.5rem) clamp(2rem, 6vw, 4rem);
+    }
+
+    .countdown__inner {
+        width: min(600px, 90vw);
+        gap: clamp(1.2rem, 3vw, 2rem);
+    }
+
+    .countdown__card {
+        border-radius: clamp(40px, 10vw, 160px);
+        width: min(420px, 80vw);
+        aspect-ratio: auto;
+        padding: clamp(2.5rem, 6vw, 3rem) clamp(2rem, 5vw, 2.6rem);
+    }
+
+    .countdown__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: clamp(1rem, 3vw, 1.6rem);
+        column-gap: clamp(0.8rem, 2vw, 1.2rem);
+        padding-inline: clamp(0.1rem, 1vw, 0.5rem);
+    }
+
+    .countdown__grid li {
+        padding-block: 0.75rem;
+    }
+
+    .countdown__grid li:not(:last-child)::after {
+        display: none;
+    }
+
+    .countdown__rings {
+        width: clamp(300px, 72vw, 420px);
+        height: clamp(300px, 72vw, 420px);
     }
 }
 
