@@ -466,8 +466,8 @@ a {
     background: var(--color-card);
     box-shadow: var(--shadow-soft);
     border-radius: 50%;
-    width: min(320px, 82vw);
-    aspect-ratio: 2 / 2;
+    aspect-ratio: 1 / 1; /* cuadrado para círculo perfecto */
+    box-sizing: border-box; /* padding incluido en el círculo */
     padding: clamp(2.8rem, 6vw, 3.2rem) clamp(2.2rem, 5vw, 2.8rem);
     display: flex;
     flex-direction: column;
@@ -487,6 +487,7 @@ a {
     font-size: clamp(0.85rem, 2.4vw, 1rem);
     text-transform: uppercase;
     letter-spacing: 0.25rem;
+    padding: 10px;
     color: rgba(68, 55, 42, 0.6);
 }
 
@@ -500,16 +501,16 @@ a {
 
 .countdown__grid li {
     position: relative;
-    padding-inline: clamp(0.25rem, 0.8vw, 0.75rem);
-    overflow: hidden;
+    padding-inline: clamp(0.35rem, 1vw, 0.9rem);
+    overflow: visible; /* evita recortes del texto animado */
 }
 
 .countdown__grid li:not(:last-child)::after {
     content: "";
     position: absolute;
-    top: 15%;
+    top: 10%;
     right: clamp(-0.2rem, -0.5vw, -0.4rem);
-    height: 70%;
+    height: 80%;
     width: 1px;
     font-size: 8rem;
     background: rgba(68, 55, 42, 0.18);
@@ -520,12 +521,13 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 2.4ch;
+    min-width: 2.8ch; /* evita solapamiento de 3 dígitos */
     font-family: var(--font-serif);
-    font-size: clamp(1.6rem, 4.5vw, 3.2rem);
+    font-size: clamp(1.8rem, 4.6vw, 3rem);
     font-weight: 600;
     color: #33261a;
-    line-height: 1.1;
+    line-height: 1; /* previene recortes verticales */
+    letter-spacing: 0.02em;
     will-change: transform, opacity;
     transform-origin: center;
 }
@@ -1178,6 +1180,9 @@ body.has-bank-modal {
     align-items: center;
     gap: 0.5rem;
 }
+.rsvp-select{
+    color: black
+}
 
 .rsvp-actions {
     display: flex;
@@ -1400,16 +1405,14 @@ body.has-bank-modal {
     }
 
     .countdown__card {
-        border-radius: clamp(40px, 10vw, 160px);
+        border-radius: 50%;
         width: min(420px, 80vw);
-        aspect-ratio: auto;
-        padding: clamp(2.5rem, 6vw, 3rem) clamp(2rem, 5vw, 2.6rem);
+        aspect-ratio: 1 / 1;
+        box-sizing: border-box;
+        padding: clamp(2.4rem, 5.5vw, 2.8rem) clamp(1.9rem, 5vw, 2.4rem);
     }
 
     .countdown__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        row-gap: clamp(1rem, 3vw, 1.6rem);
-        column-gap: clamp(0.8rem, 2vw, 1.2rem);
         padding-inline: clamp(0.1rem, 1vw, 0.5rem);
     }
 
@@ -1459,15 +1462,12 @@ body.has-bank-modal {
     }
 
     .countdown__card {
-        border-radius: clamp(28px, 16vw, 180px);
-        aspect-ratio: auto;
-        padding: clamp(2.4rem, 6vw, 3rem) clamp(1.8rem, 5vw, 2.6rem);
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        box-sizing: border-box;
+        padding: clamp(2.2rem, 6vw, 2.6rem) clamp(1.6rem, 5vw, 2.2rem);
     }
 
-    .countdown__grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        row-gap: clamp(1rem, 4vw, 1.6rem);
-    }
 
     .countdown__grid li:nth-child(2)::after {
         display: none;
