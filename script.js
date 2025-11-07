@@ -451,7 +451,7 @@
 
     // API URL (usa el servidor local si estamos en entorno de desarrollo)
     const API_URL = (location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')
-        ? 'http://localhost:3000/api/rsvp'
+        ? 'https://valuybrai-backend.vercel.app/api/rsvp'
         : '/api/rsvp';
 
     const fixMojibake = (str) => {
