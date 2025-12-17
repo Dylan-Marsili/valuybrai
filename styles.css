@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 :root {
     --color-gold: #9E9D83;
     --color-gold-dark: #c19a62;
@@ -9,7 +10,7 @@
     --color-card: #fdfaf6;
     --font-serif: "Tangerine", cursive;
     --font-sans: "Poppins", "Helvetica Neue", Arial, sans-serif;
-    --font-script: "Tangerine",cursive;
+    --font-script: "Tangerine", cursive;
     --color-flower-deep: #423528;
     --color-flower-accent: var(--color-gold);
     --color-stem: var(--color-mint);
@@ -68,7 +69,7 @@ a {
     position: absolute;
     inset: 0;
     background: radial-gradient(circle at top right, rgba(214, 185, 142, 0.28), transparent 55%),
-                radial-gradient(circle at bottom left, rgba(214, 185, 142, 0.22), transparent 60%);
+        radial-gradient(circle at bottom left, rgba(214, 185, 142, 0.22), transparent 60%);
     z-index: 0;
 }
 
@@ -264,9 +265,17 @@ a {
 }
 
 @keyframes leafFloat {
-    0% { transform: var(--leaf-transform) translateY(0); }
-    50% { transform: var(--leaf-transform) translateY(-10px); }
-    100% { transform: var(--leaf-transform) translateY(0); }
+    0% {
+        transform: var(--leaf-transform) translateY(0);
+    }
+
+    50% {
+        transform: var(--leaf-transform) translateY(-10px);
+    }
+
+    100% {
+        transform: var(--leaf-transform) translateY(0);
+    }
 }
 
 .hero__leaf,
@@ -466,8 +475,10 @@ a {
     background: var(--color-card);
     box-shadow: var(--shadow-soft);
     border-radius: 50%;
-    aspect-ratio: 1 / 1; /* cuadrado para círculo perfecto */
-    box-sizing: border-box; /* padding incluido en el círculo */
+    aspect-ratio: 1 / 1;
+    /* cuadrado para círculo perfecto */
+    box-sizing: border-box;
+    /* padding incluido en el círculo */
     padding: clamp(2.8rem, 6vw, 3.2rem) clamp(2.2rem, 5vw, 2.8rem);
     display: flex;
     flex-direction: column;
@@ -502,7 +513,8 @@ a {
 .countdown__grid li {
     position: relative;
     padding-inline: clamp(0.35rem, 1vw, 0.9rem);
-    overflow: visible; /* evita recortes del texto animado */
+    overflow: visible;
+    /* evita recortes del texto animado */
 }
 
 .countdown__grid li:not(:last-child)::after {
@@ -521,12 +533,14 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 2.8ch; /* evita solapamiento de 3 dígitos */
+    min-width: 2.8ch;
+    /* evita solapamiento de 3 dígitos */
     font-family: var(--font-serif);
     font-size: clamp(1.8rem, 4.6vw, 3rem);
     font-weight: 600;
     color: #33261a;
-    line-height: 1; /* previene recortes verticales */
+    line-height: 1;
+    /* previene recortes verticales */
     letter-spacing: 0.02em;
     will-change: transform, opacity;
     transform-origin: center;
@@ -569,6 +583,7 @@ a {
     justify-content: center;
     text-align: center;
 }
+
 .event-info-fiesta {
     background: #9E9D83;
     color: #2f2a26;
@@ -605,12 +620,14 @@ a {
     text-transform: uppercase;
     color: white;
 }
+
 .event-info__subtitle-w {
     font-size: clamp(0.85rem, 2.2vw, 1rem);
     letter-spacing: 0.35rem;
     text-transform: uppercase;
     color: #9E9D83
 }
+
 .event-info__subtitle-conf {
     font-size: clamp(0.85rem, 2.2vw, 1rem);
     letter-spacing: 0.35rem;
@@ -625,6 +642,7 @@ a {
     letter-spacing: 0.12rem;
     color: #9E9D83
 }
+
 .event-info__title-w {
     font-family: var(--font-serif);
     font-size: clamp(1.9rem, 4.6vw, 2.5rem);
@@ -645,6 +663,7 @@ a {
     font-size: clamp(0.95rem, 2.2vw, 1.15rem);
     color: rgba(47, 42, 38, 0.75);
 }
+
 .event-info__text-w {
     font-size: clamp(0.95rem, 2.2vw, 1.15rem);
     color: white;
@@ -718,7 +737,7 @@ a {
     margin-bottom: 0;
 }
 
-.itinerary__item + .itinerary__rule {
+.itinerary__item+.itinerary__rule {
     margin-top: clamp(2rem, 5vw, 3.5rem);
 }
 
@@ -776,7 +795,7 @@ a {
     outline-offset: 3px;
 }
 
-.itinerary__item + .itinerary__item {
+.itinerary__item+.itinerary__item {
     margin-top: clamp(2rem, 6vw, 3.5rem);
 }
 
@@ -846,7 +865,7 @@ a {
     width: 100%;
     --carousel-index: 0;
     --slides-per-view: 1;
-    transform: translateX(calc(var(--carousel-index) * -100%));
+    transform: translateX(calc(var(--carousel-index) * -100% / var(--slides-per-view)));
     transition: transform 0.6s ease;
 }
 
@@ -1022,9 +1041,12 @@ a {
     padding: clamp(2rem, 6vw, 3rem);
     box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55);
     outline: none;
-    max-height: 90vh;            /* Permite scroll si el contenido excede */
-    overflow: auto;              /* Habilita el scroll interno */
-    -webkit-overflow-scrolling: touch; /* Scroll suave en móviles iOS */
+    max-height: 90vh;
+    /* Permite scroll si el contenido excede */
+    overflow: auto;
+    /* Habilita el scroll interno */
+    -webkit-overflow-scrolling: touch;
+    /* Scroll suave en móviles iOS */
 }
 
 .bank-modal__close {
@@ -1056,7 +1078,7 @@ a {
     background: rgba(0, 0, 0, 0.05);
 }
 
-.bank-modal__section + .bank-modal__section {
+.bank-modal__section+.bank-modal__section {
     margin-top: clamp(1.2rem, 3vw, 1.8rem);
 }
 
@@ -1097,7 +1119,8 @@ body.has-bank-modal {
 @media (max-width: 520px) {
     .bank-modal__dialog {
         padding: clamp(1.5rem, 8vw, 2.25rem);
-        max-height: 92vh; /* Un poco más de alto útil en móviles */
+        max-height: 92vh;
+        /* Un poco más de alto útil en móviles */
     }
 
     .bank-modal__heading {
@@ -1117,10 +1140,12 @@ body.has-bank-modal {
         transform: translateY(60%) scale(0.9);
         opacity: 0;
     }
+
     40% {
         transform: translateY(-18%) scale(1.05);
         opacity: 1;
     }
+
     100% {
         transform: translateY(0) scale(1);
         opacity: 1;
@@ -1180,7 +1205,8 @@ body.has-bank-modal {
     align-items: center;
     gap: 0.5rem;
 }
-.rsvp-select{
+
+.rsvp-select {
     color: black
 }
 
@@ -1191,7 +1217,9 @@ body.has-bank-modal {
     margin-top: 0.25rem;
 }
 
-.rsvp-actions__spacer { flex: 1; }
+.rsvp-actions__spacer {
+    flex: 1;
+}
 
 .rsvp-add,
 .rsvp-submit,
@@ -1446,6 +1474,7 @@ body.has-bank-modal {
 }
 
 @media (max-width: 640px) {
+
     .hero__leaf,
     .decor-leaf {
         width: clamp(80px, 22vw, 140px);
@@ -1522,6 +1551,7 @@ body.has-bank-modal {
         right: calc(0.9rem + env(safe-area-inset-right, 0px));
     }
 }
+
 .viewport {
     height: 30vh;
 }
@@ -1566,3 +1596,14 @@ body.has-bank-modal {
     }
 }
 
+.moonlight-strip {
+    background-color: #15100d;
+    color: rgba(245, 241, 234, 0.4);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.75rem;
+    font-family: var(--font-sans);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    width: 100%;
+}
