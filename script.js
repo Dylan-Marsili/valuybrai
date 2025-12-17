@@ -64,9 +64,39 @@
     const next = carousel.querySelector('[data-carousel-next]');
     if (!track || !slides.length) return;
     let index = 0;
-    const update = () => track.style.setProperty('--carousel-index', index);
-    prev && prev.addEventListener('click', () => { index = (index - 1 + slides.length) % slides.length; update(); });
-    next && next.addEventListener('click', () => { index = (index + 1) % slides.length; update(); });
+
+    const getMaxIndex = () => {
+      const style = getComputedStyle(track);
+      const slidesPerView = parseInt(style.getPropertyValue('--slides-per-view')) || 1;
+      return Math.max(0, slides.length - slidesPerView);
+    };
+
+    const update = () => {
+      track.style.setProperty('--carousel-index', index);
+      // Deshabilitar botón prev solo si estamos en el inicio
+      if (prev) prev.disabled = index <= 0;
+      // El botón next nunca se deshabilita porque hace loop
+      if (next) next.disabled = false;
+    };
+
+    prev && prev.addEventListener('click', () => {
+      if (index > 0) {
+        index--;
+        update();
+      }
+    });
+
+    next && next.addEventListener('click', () => {
+      const maxIndex = getMaxIndex();
+      if (index < maxIndex) {
+        index++;
+      } else {
+        // Si está en el último, volver al principio
+        index = 0;
+      }
+      update();
+    });
+
     update();
   });
 })();
@@ -162,7 +192,7 @@
     const btn = e.target.closest('[data-guest-remove]'); if (!btn) return; e.preventDefault();
     const block = btn.closest('[data-guest]');
     const blocks = guestContainer.querySelectorAll('[data-guest]');
-    if (blocks.length > 1) block.remove(); else block.querySelectorAll('input,select').forEach(el => { if (el.type==='radio') el.checked=false; else el.value=''; });
+    if (blocks.length > 1) block.remove(); else block.querySelectorAll('input,select').forEach(el => { if (el.type === 'radio') el.checked = false; else el.value = ''; });
     updateGuestControls();
   });
 
