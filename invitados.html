@@ -1,52 +1,390 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listado de Invitados – Confirmaciones</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .panel { max-width: 1100px; margin: 2rem auto; padding: 1rem; }
-    .panel h1 { font-size: 1.6rem; margin-bottom: .75rem; }
-    .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin: 1rem 0 1.5rem; }
-    .card { border: 1px solid rgba(245,241,234,.55); border-radius: 12px; padding: 1rem; background: rgba(0,0,0,.05); }
-    .card h2 { font-size: 1.05rem; margin: 0 0 .5rem; display:flex; justify-content:space-between; align-items:center; }
-    .count { font-weight: 600; opacity:.9; }
-    .list { max-height: 50vh; overflow: auto; display: grid; gap: .35rem; }
-    .item { display:flex; justify-content: space-between; gap:.5rem; font-size:.95rem; border-bottom: 1px dashed rgba(245,241,234,.25); padding-bottom:.25rem; }
-    .muted { opacity:.75; font-size:.9rem; }
-    .toolbar { display:flex; gap:.5rem; align-items:center; margin:.5rem 0 1rem; }
-    .toolbar input { padding:.45rem .6rem; border-radius: 8px; border:1px solid rgba(245,241,234,.6); background: rgba(255,255,255,.06); color: var(--color-card, #fff); width: 320px; max-width: 100%; }
-    .warn { color: #ffd2d2; margin-top:.75rem; }
-  </style>
-</head>
-<body>
-  <main class="panel">
-    <h1>Confirmaciones de asistencia</h1>
-    <div class="toolbar">
-      <input type="search" id="search" placeholder="Buscar por nombre o apellido..." aria-label="Buscar" />
-      <span id="policyWarn" class="warn" hidden>Sin permisos de lectura en Supabase (revisa RLS/políticas).</span>
-    </div>
-    <div class="stats">
-      <section class="card" id="card-yes">
-        <h2>¡Asisten! <span class="count" id="count-yes">0</span></h2>
-        <div class="list" id="list-yes" aria-live="polite"></div>
-      </section>
-      <section class="card" id="card-no">
-        <h2>No asisten <span class="count" id="count-no">0</span></h2>
-        <div class="list" id="list-no"></div>
-      </section>
-      <section class="card" id="card-pending">
-        <h2>Pendientes <span class="count" id="count-pending">0</span></h2>
-        <div class="list" id="list-pending"></div>
-      </section>
-    </div>
-  </main>
-
-  <script type="module" src="invitados.js"></script>
-</body>
-</html>
-
+[
+  {
+    "Nombre": "Cristian",
+    "Apellido": "Gennaro"
+  },
+  {
+    "Nombre": "Maximiliano",
+    "Apellido": "Sincovich"
+  },
+  {
+    "Nombre": "Guiliano",
+    "Apellido": "Petteruti"
+  },
+  {
+    "Nombre": "Sofia",
+    "Apellido": "Racci"
+  },
+  {
+    "Nombre": "Leonel",
+    "Apellido": "Martin"
+  },
+  {
+    "Nombre": "Enzo",
+    "Apellido": "Quiroga"
+  },
+  {
+    "Nombre": "Nicolas",
+    "Apellido": "Holoveski"
+  },
+  {
+    "Nombre": "Franco",
+    "Apellido": "Ove"
+  },
+  {
+    "Nombre": "Federico",
+    "Apellido": "Sanchez"
+  },
+  {
+    "Nombre": "Mateo",
+    "Apellido": "Scandurra"
+  },
+  {
+    "Nombre": "Juan Ignacio",
+    "Apellido": "Gunnersson"
+  },
+  {
+    "Nombre": "Joaquin ",
+    "Apellido": "Piva"
+  },
+  {
+    "Nombre": "Matias",
+    "Apellido": "Seberio"
+  },
+  {
+    "Nombre": "Nicolas",
+    "Apellido": "Di Mascio"
+  },
+  {
+    "Nombre": "Nadia",
+    "Apellido": "Olsen"
+  },
+  {
+    "Nombre": "Ailin",
+    "Apellido": "Sommer"
+  },
+  {
+    "Nombre": "Sasha",
+    "Apellido": "Dondero"
+  },
+  {
+    "Nombre": "Juan",
+    "Apellido": "Miranda"
+  },
+  {
+    "Nombre": "Lorena",
+    "Apellido": "San Martin"
+  },
+  {
+    "Nombre": "Lautaro",
+    "Apellido": "Piñero"
+  },
+  {
+    "Nombre": "Julieta",
+    "Apellido": "Sandobal"
+  },
+  {
+    "Nombre": "Valeria",
+    "Apellido": "Oviedo"
+  },
+  {
+    "Nombre": "Leonardo",
+    "Apellido": "Blando"
+  },
+  {
+    "Nombre": "Carola",
+    "Apellido": "Giovannelli"
+  },
+  {
+    "Nombre": "Lorenzo",
+    "Apellido": "Aguilo"
+  },
+  {
+    "Nombre": "Ana",
+    "Apellido": "Marcellini"
+  },
+  {
+    "Nombre": "Agostina",
+    "Apellido": "Carta"
+  },
+  {
+    "Nombre": "Alexis",
+    "Apellido": "Masiello"
+  },
+  {
+    "Nombre": "Luciano",
+    "Apellido": "Quinzano"
+  },
+  {
+    "Nombre": "Paula",
+    "Apellido": "Caba"
+  },
+  {
+    "Nombre": "Franco",
+    "Apellido": "Arellano"
+  },
+  {
+    "Nombre": "Nicolas",
+    "Apellido": "Aquino"
+  },
+  {
+    "Nombre": "Fernando",
+    "Apellido": "Medina"
+  },
+  {
+    "Nombre": "Clara",
+    "Apellido": "Parisi"
+  },
+  {
+    "Nombre": "Paloma",
+    "Apellido": "Ordoqui"
+  },
+  {
+    "Nombre": "Anabella",
+    "Apellido": "Mezzapesa"
+  },
+  {
+    "Nombre": "Mailen ",
+    "Apellido": "Balart"
+  },
+  {
+    "Nombre": "Virginia",
+    "Apellido": "Di Persia"
+  },
+  {
+    "Nombre": "Rocio",
+    "Apellido": "Cabanelas"
+  },
+  {
+    "Nombre": "Camila",
+    "Apellido": "Mendoza"
+  },
+  {
+    "Nombre": "Camila",
+    "Apellido": "Puglisi"
+  },
+  {
+    "Nombre": "Lucia",
+    "Apellido": "Piquero"
+  },
+  {
+    "Nombre": "Noemi",
+    "Apellido": "Flores Parras"
+  },
+  {
+    "Nombre": "Ruben",
+    "Apellido": "Marsili"
+  },
+  {
+    "Nombre": "Thiago",
+    "Apellido": "Marsili"
+  },
+  {
+    "Nombre": "Dylan",
+    "Apellido": "Marsili"
+  },
+  {
+    "Nombre": "Estela",
+    "Apellido": "Cañete"
+  },
+  {
+    "Nombre": "Hernan",
+    "Apellido": "Valdez"
+  },
+  {
+    "Nombre": "Paula",
+    "Apellido": "Valdez"
+  },
+  {
+    "Nombre": "Tomas ",
+    "Apellido": "Valdez"
+  },
+  {
+    "Nombre": "Raquel",
+    "Apellido": "Marsili"
+  },
+  {
+    "Nombre": "Micaela",
+    "Apellido": "Hernandez"
+  },
+  {
+    "Nombre": "Matias",
+    "Apellido": "Hernandez"
+  },
+  {
+    "Nombre": "Damian",
+    "Apellido": "Hernandez"
+  },
+  {
+    "Nombre": "Juliana",
+    "Apellido": "Tarabini"
+  },
+  {
+    "Nombre": "Gabriela",
+    "Apellido": "Acosta"
+  },
+  {
+    "Nombre": "Claudio",
+    "Apellido": "Bazzano"
+  },
+  {
+    "Nombre": "Roman",
+    "Apellido": "Bazzano"
+  },
+  {
+    "Nombre": "Mercedes",
+    "Apellido": "Cañete"
+  },
+  {
+    "Nombre": "Catalina",
+    "Apellido": "Pravato"
+  },
+  {
+    "Nombre": "Maria Eva",
+    "Apellido": "Riquelme "
+  },
+  {
+    "Nombre": "Mabel",
+    "Apellido": "Acosta"
+  },
+  {
+    "Nombre": "Hugo",
+    "Apellido": "Valdez"
+  },
+  {
+    "Nombre": "Ariel",
+    "Apellido": "Valdez"
+  },
+  {
+    "Nombre": "Yami",
+    "Apellido": "Lucero"
+  },
+  {
+    "Nombre": "Luca ",
+    "Apellido": "Valdez"
+  },
+  {
+    "Nombre": "Florencia",
+    "Apellido": "Valdez"
+  },
+  {
+    "Nombre": "Jorgelina",
+    "Apellido": "Mastrolorenzo"
+  },
+  {
+    "Nombre": "Santiago",
+    "Apellido": "Acosta"
+  },
+  {
+    "Nombre": "Stella",
+    "Apellido": "Riquelme "
+  },
+  {
+    "Nombre": "Gustavo",
+    "Apellido": "Acosta"
+  },
+  {
+    "Nombre": "Leti",
+    "Apellido": "Acosta"
+  },
+  {
+    "Nombre": "Diego",
+    "Apellido": "Acosta"
+  },
+  {
+    "Nombre": "Sergio ",
+    "Apellido": "Amaya"
+  },
+  {
+    "Nombre": "Marcela",
+    "Apellido": "Lobos"
+  },
+  {
+    "Nombre": "Julia",
+    "Apellido": "Portillo"
+  },
+  {
+    "Nombre": "Joaquin",
+    "Apellido": "Portillo"
+  },
+  {
+    "Nombre": "Graciela ",
+    "Apellido": "Acosta"
+  },
+  {
+    "Nombre": "Matias",
+    "Apellido": "Villasante"
+  },
+  {
+    "Nombre": "Mauro ",
+    "Apellido": "Garcia"
+  },
+  {
+    "Nombre": "Nicolas ",
+    "Apellido": "Matascuso"
+  },
+  {
+    "Nombre": "Franco",
+    "Apellido": "Marcellini"
+  },
+  {
+    "Nombre": "Jesus",
+    "Apellido": "Mogollon"
+  },
+  {
+    "Nombre": "Valentina",
+    "Apellido": "Acosta"
+  },
+  {
+    "Nombre": "Braian",
+    "Apellido": "Marsili"
+  },
+  {
+    "Nombre": "Mabel",
+    "Apellido": "Benetti"
+  },
+  {
+    "Nombre": "Antonio",
+    "Apellido": "Pravato"
+  },
+  {
+    "Nombre": "Zoraida",
+    "Apellido": "Pravato"
+  },
+  {
+    "Nombre": "Lisandro",
+    "Apellido": "Varela"
+  },
+  {
+    "Nombre": "Martin",
+    "Apellido": "Canabarro"
+  },
+  {
+    "Nombre": "Sabrina",
+    "Apellido": "Canabarro"
+  },
+  {
+    "Nombre": "Nicolas",
+    "Apellido": "Rodriguez"
+  },
+  {
+    "Nombre": "Federico",
+    "Apellido": "Guastavino"
+  },
+  {
+    "Nombre": "Florencia",
+    "Apellido": "Brisco"
+  },
+  {
+    "Nombre": "Agustina",
+    "Apellido": "Fasanelli"
+  },
+  {
+    "Nombre": "Daiana",
+    "Apellido": "Torres"
+  },
+  {
+    "Nombre": "Martina",
+    "Apellido": "Hernandez"
+  }
+]
